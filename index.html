@@ -3,572 +3,385 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Raghav Patidar — Business Systems Analyst | Fike Corporation</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<title>Raghav Patidar — BSA | Fike Corporation</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --navy: #002B5C;
-  --blue: #0057A8;
-  --orange: #E85A1B;
-  --orange-lt: #F4752E;
-  --charcoal: #1e2a38;
-  --gray: #6b7a8d;
-  --gray-lt: #e8edf3;
-  --bg: #f4f7fb;
-  --white: #fff;
+  --navy:    #01244e;
+  --blue:    #0a4b8c;
+  --orange:  #d95f0e;
+  --text:    #1a1f2e;
+  --muted:   #5a6478;
+  --rule:    #dde2ea;
+  --bg:      #f6f8fc;
+  --white:   #ffffff;
 }
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Inter',sans-serif; color:var(--charcoal); background:var(--white); }
+body { font-family:'Inter',sans-serif; color:var(--text); background:var(--white); -webkit-font-smoothing:antialiased; }
 
-.nav {
-  position:sticky; top:0; z-index:99;
-  background:rgba(0,43,92,0.97); backdrop-filter:blur(8px);
-  padding:12px 8%; display:flex; justify-content:space-between; align-items:center;
-  border-bottom:1px solid rgba(255,255,255,0.08);
-}
-.nav-brand { font-size:14px; font-weight:700; color:#fff; }
-.nav-brand span { color:var(--orange); }
-.nav-links { display:flex; gap:24px; }
-.nav-links a { font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,0.55); text-decoration:none; }
-.nav-links a:hover { color:#fff; }
-
-/* COVER */
-.cover {
-  background:var(--navy); padding:70px 8% 60px;
+/* ─── HEADER ─── */
+header {
+  background:var(--navy);
+  padding:56px 10% 48px;
   position:relative; overflow:hidden;
 }
-.cover::before {
-  content:''; position:absolute; top:-100px; right:-100px;
-  width:500px; height:500px;
-  background:radial-gradient(circle, rgba(0,87,168,0.3) 0%, transparent 65%);
-  border-radius:50%;
+header::after {
+  content:'';
+  position:absolute; left:0; bottom:0; right:0; height:3px;
+  background:linear-gradient(90deg, var(--orange) 0%, transparent 60%);
 }
-.cover-tag { font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--orange); margin-bottom:14px; }
-.cover h1 { font-size:clamp(32px,4.5vw,56px); font-weight:900; color:#fff; line-height:1.1; margin-bottom:16px; max-width:720px; }
-.cover h1 em { color:var(--orange); font-style:normal; }
-.cover-sub { font-size:16px; color:rgba(255,255,255,0.62); max-width:560px; line-height:1.7; margin-bottom:44px; }
-.cover-pills { display:flex; gap:12px; flex-wrap:wrap; }
-.pill {
-  background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12);
-  border-radius:6px; padding:10px 16px;
+.h-eyebrow {
+  font-size:10px; font-weight:700; letter-spacing:3px;
+  text-transform:uppercase; color:var(--orange); margin-bottom:16px;
 }
-.pill-label { font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.4); display:block; }
-.pill-value { font-size:13px; font-weight:600; color:#fff; display:block; }
-.cover-stat-strip {
-  display:flex; gap:0; margin-top:52px;
-  border-top:1px solid rgba(255,255,255,0.1); padding-top:36px;
+header h1 {
+  font-size:clamp(28px,4vw,46px); font-weight:800;
+  color:#fff; line-height:1.1; margin-bottom:10px;
 }
-.cstat { flex:1; text-align:center; border-right:1px solid rgba(255,255,255,0.08); padding:0 16px; }
-.cstat:last-child { border-right:none; }
-.cstat-num { font-size:34px; font-weight:900; color:var(--orange); line-height:1; }
-.cstat-label { font-size:11px; color:rgba(255,255,255,0.5); margin-top:6px; line-height:1.4; }
+header h1 span { color:var(--orange); }
+.h-tagline {
+  font-size:15px; font-weight:400; color:rgba(255,255,255,0.55);
+  max-width:480px; line-height:1.6; margin-bottom:44px;
+}
+.h-meta { display:flex; gap:36px; flex-wrap:wrap; }
+.h-meta-item { }
+.h-meta-label { font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:4px; }
+.h-meta-value { font-size:13px; font-weight:600; color:rgba(255,255,255,0.85); }
 
-/* SECTIONS */
-section { padding:64px 8%; }
-section:nth-child(even) { background:var(--bg); }
-.sec-tag { font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--orange); margin-bottom:10px; }
-.sec-title { font-size:clamp(22px,3vw,34px); font-weight:800; color:var(--navy); line-height:1.2; margin-bottom:10px; }
-.sec-sub { font-size:15px; color:var(--gray); max-width:680px; line-height:1.65; margin-bottom:40px; }
-
-/* COMPANY CARDS */
-.company-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:36px; }
-.co-card {
-  background:var(--white); border-radius:10px; padding:22px 20px;
-  border-top:3px solid var(--orange);
-  box-shadow:0 2px 12px rgba(0,43,92,0.06);
-}
-.co-icon { font-size:24px; margin-bottom:10px; }
-.co-card h4 { font-size:13px; font-weight:700; color:var(--navy); margin-bottom:6px; text-transform:uppercase; letter-spacing:0.4px; }
-.co-card p { font-size:13px; color:var(--gray); line-height:1.55; }
-
-.stat-bar {
+/* ─── IMPACT BAR ─── */
+.impact-bar {
+  background:var(--orange);
   display:flex; flex-wrap:wrap;
-  background:var(--navy); border-radius:12px; overflow:hidden;
 }
-.sbar { flex:1; min-width:140px; padding:28px 24px; text-align:center; border-right:1px solid rgba(255,255,255,0.07); }
-.sbar:last-child { border-right:none; }
-.sbar-num { font-size:32px; font-weight:900; color:var(--orange); line-height:1; }
-.sbar-label { font-size:12px; color:rgba(255,255,255,0.55); margin-top:6px; }
-
-/* CHALLENGE CARDS */
-.challenge-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
-.ch-card {
-  background:var(--white); border-radius:10px; padding:24px;
-  box-shadow:0 2px 12px rgba(0,43,92,0.06);
-  display:grid; grid-template-columns:48px 1fr; gap:16px; align-items:start;
+.ib-item {
+  flex:1; min-width:140px;
+  padding:24px 20px; text-align:center;
+  border-right:1px solid rgba(255,255,255,0.2);
 }
-.ch-icon {
-  width:48px; height:48px; border-radius:10px;
-  background:var(--navy); display:flex; align-items:center; justify-content:center;
-  font-size:20px; flex-shrink:0;
+.ib-item:last-child { border-right:none; }
+.ib-num { font-size:30px; font-weight:800; color:#fff; line-height:1; }
+.ib-label { font-size:11px; color:rgba(255,255,255,0.75); margin-top:5px; font-weight:500; }
+
+/* ─── SECTIONS ─── */
+section { padding:60px 10%; }
+section.alt { background:var(--bg); }
+.sec-label {
+  font-size:9px; font-weight:700; letter-spacing:3px;
+  text-transform:uppercase; color:var(--orange); margin-bottom:10px;
 }
-.ch-badge { display:inline-block; font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:2px 8px; border-radius:20px; margin-bottom:6px; }
-.ch-badge.critical { background:rgba(232,90,27,0.12); color:var(--orange); }
-.ch-badge.high { background:rgba(0,87,168,0.1); color:var(--blue); }
-.ch-card h4 { font-size:14px; font-weight:700; color:var(--navy); margin-bottom:5px; }
-.ch-card p { font-size:13px; color:var(--gray); line-height:1.5; }
-
-/* APPROACH */
-.approach-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-.ap-card {
-  background:var(--white); border-radius:10px; padding:24px 20px;
-  box-shadow:0 2px 12px rgba(0,43,92,0.06);
-  border-left:3px solid var(--orange);
+.sec-title {
+  font-size:clamp(18px,2.5vw,26px); font-weight:800;
+  color:var(--navy); margin-bottom:6px; line-height:1.2;
 }
-.ap-num { font-size:11px; font-weight:700; letter-spacing:2px; color:var(--orange); text-transform:uppercase; margin-bottom:8px; }
-.ap-card h4 { font-size:14px; font-weight:700; color:var(--navy); margin-bottom:8px; }
-.ap-card ul { list-style:none; }
-.ap-card ul li { font-size:12.5px; color:var(--gray); padding:3px 0 3px 12px; position:relative; line-height:1.45; }
-.ap-card ul li::before { content:'▸'; color:var(--orange); position:absolute; left:0; font-size:10px; top:5px; }
-
-/* SF FLOW */
-.sf-box {
-  background:var(--white); border-radius:12px; padding:32px;
-  box-shadow:0 2px 14px rgba(0,43,92,0.07); margin-bottom:20px;
+.sec-desc {
+  font-size:14px; color:var(--muted); max-width:600px;
+  line-height:1.65; margin-bottom:36px;
 }
-.sf-box-title { font-size:15px; font-weight:700; color:var(--navy); margin-bottom:4px; }
-.sf-box-sub { font-size:13px; color:var(--gray); margin-bottom:24px; }
-.sf-flow { display:flex; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
-.sf-node {
-  background:var(--navy); color:#fff; border-radius:7px;
-  padding:9px 14px; font-size:12px; font-weight:600; text-align:center; min-width:100px;
+hr.rule { border:none; border-top:1px solid var(--rule); margin:0; }
+
+/* ─── COMPANY STRIP ─── */
+.company-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--rule); border:1px solid var(--rule); border-radius:8px; overflow:hidden; }
+.cs-item { background:var(--white); padding:22px 20px; }
+.cs-label { font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+.cs-value { font-size:14px; font-weight:700; color:var(--navy); line-height:1.4; }
+.cs-sub { font-size:12px; color:var(--muted); margin-top:3px; }
+
+/* ─── PROBLEM / SOLUTION ─── */
+.ps-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.ps-col { background:var(--white); border:1px solid var(--rule); border-radius:8px; overflow:hidden; }
+.ps-col-head { padding:14px 20px; font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; }
+.ps-col-head.problem { background:var(--navy); color:rgba(255,255,255,0.7); }
+.ps-col-head.solution { background:var(--orange); color:rgba(255,255,255,0.85); }
+.ps-row { padding:16px 20px; border-top:1px solid var(--rule); display:grid; grid-template-columns:20px 1fr; gap:12px; align-items:start; }
+.ps-row:first-of-type { border-top:none; }
+.ps-num { font-size:11px; font-weight:800; color:var(--orange); padding-top:1px; }
+.ps-col.solution .ps-num { color:var(--navy); }
+.ps-row strong { display:block; font-size:13px; font-weight:700; color:var(--navy); margin-bottom:3px; }
+.ps-row p { font-size:12.5px; color:var(--muted); line-height:1.5; }
+
+/* ─── SKILLS TABLE ─── */
+.skills-table { width:100%; border-collapse:collapse; }
+.skills-table tr { border-bottom:1px solid var(--rule); }
+.skills-table tr:last-child { border-bottom:none; }
+.skills-table td { padding:14px 0; vertical-align:middle; }
+.sk-name { font-size:13px; font-weight:600; color:var(--navy); width:34%; }
+.sk-bar-wrap { width:42%; padding:0 20px; }
+.sk-bg { background:var(--rule); border-radius:100px; height:5px; }
+.sk-fill { height:5px; border-radius:100px; background:linear-gradient(90deg,var(--navy),var(--blue)); }
+.sk-proof { font-size:12px; color:var(--muted); line-height:1.4; width:24%; }
+.sk-pct { font-size:13px; font-weight:800; color:var(--orange); width:8%; text-align:right; }
+
+/* ─── 90-DAY ─── */
+.plan-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.plan-col { border:1px solid var(--rule); border-radius:8px; overflow:hidden; }
+.plan-head { padding:16px 18px; }
+.plan-head.p1 { background:var(--navy); }
+.plan-head.p2 { background:var(--blue); }
+.plan-head.p3 { background:var(--orange); }
+.plan-phase { font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.55); margin-bottom:4px; }
+.plan-title { font-size:16px; font-weight:800; color:#fff; }
+.plan-dates { font-size:11px; color:rgba(255,255,255,0.5); margin-top:3px; }
+.plan-body { padding:16px 18px; background:var(--white); }
+.plan-item { font-size:12.5px; color:var(--muted); padding:7px 0; border-bottom:1px solid var(--rule); line-height:1.45; }
+.plan-item:last-of-type { border-bottom:none; }
+.plan-item strong { color:var(--text); font-weight:600; }
+.plan-output { margin-top:12px; padding:10px 12px; background:var(--bg); border-radius:5px; font-size:11.5px; color:var(--navy); font-weight:600; }
+.plan-output span { display:block; font-size:9px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-bottom:3px; }
+
+/* ─── FOOTER ─── */
+footer {
+  background:var(--navy); padding:44px 10%;
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:28px;
 }
-.sf-node.o { background:var(--orange); }
-.sf-node.b { background:var(--blue); }
-.sf-arr { color:var(--gray); font-size:16px; }
+.footer-left h3 { font-size:18px; font-weight:800; color:#fff; margin-bottom:4px; }
+.footer-left p { font-size:13px; color:rgba(255,255,255,0.5); }
+.footer-right { display:flex; gap:16px; flex-wrap:wrap; }
+.footer-right a {
+  padding:11px 22px; border-radius:6px;
+  font-size:13px; font-weight:600; text-decoration:none;
+}
+.btn-solid { background:var(--orange); color:#fff; }
+.btn-ghost { border:1px solid rgba(255,255,255,0.25); color:rgba(255,255,255,0.8); }
+.footer-contacts { display:flex; gap:36px; flex-wrap:wrap; padding-top:24px; border-top:1px solid rgba(255,255,255,0.1); width:100%; }
+.fc-item { }
+.fc-label { font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-bottom:4px; }
+.fc-val { font-size:13px; font-weight:600; color:rgba(255,255,255,0.8); }
 
-/* ROADMAP */
-.roadmap { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-.rm-card { border-radius:10px; overflow:hidden; box-shadow:0 2px 12px rgba(0,43,92,0.07); }
-.rm-head { padding:20px 22px; color:#fff; }
-.rm-head.p1 { background:var(--navy); }
-.rm-head.p2 { background:var(--blue); }
-.rm-head.p3 { background:var(--orange); }
-.rm-phase { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; opacity:0.65; margin-bottom:4px; }
-.rm-title { font-size:18px; font-weight:800; }
-.rm-span { font-size:11px; opacity:0.65; margin-top:3px; }
-.rm-body { background:var(--white); padding:20px 22px; }
-.rm-item { display:flex; gap:10px; margin-bottom:10px; align-items:flex-start; }
-.rm-dot { width:7px; height:7px; border-radius:50%; background:var(--orange); flex-shrink:0; margin-top:5px; }
-.rm-card:nth-child(2) .rm-dot { background:var(--blue); }
-.rm-item span { font-size:12.5px; color:var(--gray); line-height:1.45; }
-.rm-kpi { background:var(--bg); border-radius:7px; padding:11px 14px; margin-top:14px; font-size:12px; font-weight:600; color:var(--navy); }
-.rm-kpi-lbl { font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:var(--gray); margin-bottom:4px; }
-
-/* SKILLS */
-.skills-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:36px; }
-.sk-row { background:var(--white); border-radius:8px; padding:16px 18px; box-shadow:0 1px 8px rgba(0,43,92,0.05); }
-.sk-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
-.sk-name { font-size:13px; font-weight:600; color:var(--navy); }
-.sk-pct { font-size:13px; font-weight:800; color:var(--orange); }
-.sk-bar-bg { background:var(--gray-lt); border-radius:100px; height:5px; overflow:hidden; }
-.sk-bar-fill { height:100%; border-radius:100px; background:linear-gradient(90deg,var(--navy),var(--blue)); }
-.sk-note { font-size:11.5px; color:var(--gray); margin-top:7px; line-height:1.45; }
-
-/* KPI STRIP */
-.kpi-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
-.kpi-card { background:var(--white); border-radius:10px; padding:22px 18px; text-align:center; box-shadow:0 2px 10px rgba(0,43,92,0.06); border-bottom:3px solid var(--orange); }
-.kpi-num { font-size:32px; font-weight:900; color:var(--orange); line-height:1; }
-.kpi-metric { font-size:12px; font-weight:600; color:var(--navy); margin-top:6px; }
-.kpi-ctx { font-size:11px; color:var(--gray); margin-top:3px; line-height:1.35; }
-
-/* CLOSING */
-.closing { background:var(--charcoal); color:#fff; padding:64px 8%; text-align:center; }
-.closing h2 { font-size:clamp(24px,3.5vw,40px); font-weight:900; margin-bottom:14px; line-height:1.2; }
-.closing h2 span { color:var(--orange); }
-.closing p { font-size:15px; color:rgba(255,255,255,0.62); max-width:540px; margin:0 auto 36px; line-height:1.7; }
-.btn-row { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin-bottom:44px; }
-.btn-p { background:var(--orange); color:#fff; padding:13px 28px; border-radius:7px; text-decoration:none; font-weight:700; font-size:14px; }
-.btn-o { border:2px solid rgba(255,255,255,0.25); color:#fff; padding:13px 28px; border-radius:7px; text-decoration:none; font-weight:600; font-size:14px; }
-.contact-row { display:flex; justify-content:center; gap:44px; flex-wrap:wrap; padding-top:32px; border-top:1px solid rgba(255,255,255,0.1); }
-.ct { text-align:center; }
-.ct-lbl { font-size:9px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:5px; }
-.ct-val { font-size:14px; font-weight:600; color:rgba(255,255,255,0.88); }
-
-@media(max-width:768px){
-  .company-grid, .approach-grid { grid-template-columns:1fr 1fr; }
-  .challenge-grid, .roadmap, .kpi-strip { grid-template-columns:1fr; }
-  .skills-grid { grid-template-columns:1fr; }
-  .nav-links { display:none; }
-  section { padding:48px 6%; }
-  .cover { padding:52px 6%; }
-  .cover-stat-strip { flex-wrap:wrap; }
-  .cstat { min-width:50%; border-right:none; border-bottom:1px solid rgba(255,255,255,0.08); padding:16px; }
+@media(max-width:768px) {
+  section { padding:44px 6%; }
+  header { padding:44px 6% 40px; }
+  .company-strip { grid-template-columns:1fr 1fr; }
+  .ps-grid, .plan-grid { grid-template-columns:1fr; }
+  .sk-bar-wrap, .sk-proof { display:none; }
+  footer { flex-direction:column; padding:40px 6%; }
+  .ib-item { min-width:50%; }
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="nav">
-  <div class="nav-brand">Raghav Patidar &nbsp;·&nbsp; <span>Fike Corporation</span></div>
-  <div class="nav-links">
-    <a href="#company">Company</a>
-    <a href="#challenges">Challenges</a>
-    <a href="#approach">Approach</a>
-    <a href="#roadmap">90-Day Plan</a>
-    <a href="#match">Skills Match</a>
+<!-- HEADER -->
+<header>
+  <div class="h-eyebrow">Business Systems Analyst &nbsp;·&nbsp; Req #3788 &nbsp;·&nbsp; Fike Corporation</div>
+  <h1>Raghav Patidar<br><span>Built for This Role.</span></h1>
+  <p class="h-tagline">3.5 years delivering enterprise BSA work at Infosys — requirements workshops, Salesforce ownership, Agile delivery, and root cause analysis. Here is how I would apply that directly at Fike.</p>
+  <div class="h-meta">
+    <div class="h-meta-item"><div class="h-meta-label">Experience</div><div class="h-meta-value">5+ Years</div></div>
+    <div class="h-meta-item"><div class="h-meta-label">Location</div><div class="h-meta-value">Blue Springs, MO</div></div>
+    <div class="h-meta-item"><div class="h-meta-label">Certifications</div><div class="h-meta-value">SCRUM · Agile · PM</div></div>
+    <div class="h-meta-item"><div class="h-meta-label">Core Tools</div><div class="h-meta-value">Salesforce · JIRA · Power BI · SQL</div></div>
   </div>
-</nav>
+</header>
 
-<!-- COVER -->
-<div class="cover">
-  <div class="cover-tag">Business Systems Analyst · Req #3788</div>
-  <h1>Bridging <em>Technical Capability</em><br>& Business Objectives</h1>
-  <p class="cover-sub">A focused case study on how I would own Salesforce stewardship, structured requirements delivery, and Agile execution at Fike Corporation.</p>
-  <div class="cover-pills">
-    <div class="pill"><span class="pill-label">Candidate</span><span class="pill-value">Raghav Patidar</span></div>
-    <div class="pill"><span class="pill-label">Experience</span><span class="pill-value">5+ Years · Infosys + UCM</span></div>
-    <div class="pill"><span class="pill-label">Location</span><span class="pill-value">Blue Springs, MO</span></div>
-    <div class="pill"><span class="pill-label">Certifications</span><span class="pill-value">SCRUM · Agile · PM</span></div>
-  </div>
-  <div class="cover-stat-strip">
-    <div class="cstat"><div class="cstat-num">95%</div><div class="cstat-label">Stakeholder Satisfaction</div></div>
-    <div class="cstat"><div class="cstat-num">40%</div><div class="cstat-label">Workflow Efficiency Gain</div></div>
-    <div class="cstat"><div class="cstat-num">30%</div><div class="cstat-label">Data Accuracy Improvement</div></div>
-    <div class="cstat"><div class="cstat-num">3.5yr</div><div class="cstat-label">Infosys Enterprise BSA</div></div>
-    <div class="cstat"><div class="cstat-num">15%</div><div class="cstat-label">Faster Project Delivery</div></div>
-  </div>
+<!-- IMPACT BAR -->
+<div class="impact-bar">
+  <div class="ib-item"><div class="ib-num">95%</div><div class="ib-label">Stakeholder Satisfaction</div></div>
+  <div class="ib-item"><div class="ib-num">40%</div><div class="ib-label">Workflow Efficiency Gain</div></div>
+  <div class="ib-item"><div class="ib-num">30%</div><div class="ib-label">Data Accuracy Improvement</div></div>
+  <div class="ib-item"><div class="ib-num">25%</div><div class="ib-label">Faster Leadership Decisions</div></div>
+  <div class="ib-item"><div class="ib-num">15%</div><div class="ib-label">Faster Project Delivery</div></div>
 </div>
 
-<!-- COMPANY -->
-<section id="company">
-  <div class="sec-tag">01 — Company Context</div>
-  <h2 class="sec-title">Understanding Fike's Business</h2>
-  <p class="sec-sub">Fike is a precision industrial manufacturer where data systems directly support life-safety decisions. That context shapes every requirement I would write.</p>
-  <div class="company-grid">
-    <div class="co-card">
-      <div class="co-icon">🏭</div>
-      <h4>Core Business</h4>
-      <p>Explosion protection, fire suppression, pressure relief — protecting critical industrial assets and workers worldwide.</p>
-    </div>
-    <div class="co-card">
-      <div class="co-icon">🌍</div>
-      <h4>Global Scale</h4>
-      <p>400+ locally in Blue Springs, MO · 1,200+ worldwide across USA, Belgium, Wales, Canada, and India.</p>
-    </div>
-    <div class="co-card">
-      <div class="co-icon">☁️</div>
-      <h4>Tech Ecosystem</h4>
-      <p>Salesforce CRM, CPQ, Field Service + Rootstock ERP — a complex, interconnected stack requiring careful BSA ownership.</p>
-    </div>
-    <div class="co-card">
-      <div class="co-icon">📈</div>
-      <h4>Growth Phase</h4>
-      <p>Rapidly expanding into BESS protection and new manufacturing capacity — systems must scale fast.</p>
-    </div>
-    <div class="co-card">
-      <div class="co-icon">🔒</div>
-      <h4>Compliance Context</h4>
-      <p>DoD, ISO 45001, NFPA standards — documentation and change governance are mission-critical, not optional.</p>
-    </div>
-    <div class="co-card">
-      <div class="co-icon">🤝</div>
-      <h4>Stakeholder Breadth</h4>
-      <p>Field techs, manufacturing ops, sales, finance, global leadership — the BSA must navigate all audiences at once.</p>
-    </div>
-  </div>
-  <div class="stat-bar">
-    <div class="sbar"><div class="sbar-num">1,200+</div><div class="sbar-label">Employees Worldwide</div></div>
-    <div class="sbar"><div class="sbar-num">4</div><div class="sbar-label">Salesforce Clouds to Own</div></div>
-    <div class="sbar"><div class="sbar-num">60+</div><div class="sbar-label">Global Technician Locations</div></div>
-    <div class="sbar"><div class="sbar-num">5+</div><div class="sbar-label">Countries with Manufacturing</div></div>
-  </div>
-</section>
-
-<!-- CHALLENGES -->
-<section id="challenges">
-  <div class="sec-tag">02 — Challenge Analysis</div>
-  <h2 class="sec-title">What the JD Is Really Signaling</h2>
-  <p class="sec-sub">Every line in a job description reveals a pain point. Here's how I read Fike's specific challenges between the lines.</p>
-  <div class="challenge-grid">
-    <div class="ch-card">
-      <div class="ch-icon">🎯</div>
-      <div>
-        <span class="ch-badge critical">Critical</span>
-        <h4>Translation Gap</h4>
-        <p>"Bridge between technical and business" → Stakeholders can't articulate real needs. No structured requirements process exists yet.</p>
-      </div>
-    </div>
-    <div class="ch-card">
-      <div class="ch-icon">☁️</div>
-      <div>
-        <span class="ch-badge critical">Critical</span>
-        <h4>Salesforce Fragmentation</h4>
-        <p>"Primary Salesforce point of contact" → Config debt and inconsistent data flows across CRM + CPQ + Field Service + Rootstock.</p>
-      </div>
-    </div>
-    <div class="ch-card">
-      <div class="ch-icon">📄</div>
-      <div>
-        <span class="ch-badge high">High</span>
-        <h4>Process Knowledge in People's Heads</h4>
-        <p>"Current and future state flows" → Nothing documented. Knowledge walks out the door when someone leaves.</p>
-      </div>
-    </div>
-    <div class="ch-card">
-      <div class="ch-icon">🔁</div>
-      <div>
-        <span class="ch-badge high">High</span>
-        <h4>Recurring Issues, Not Root Causes</h4>
-        <p>"Root cause analysis for recurring issues" → Symptoms get patched repeatedly. No RCA framework closing the loop permanently.</p>
-      </div>
-    </div>
-    <div class="ch-card">
-      <div class="ch-icon">🚀</div>
-      <div>
-        <span class="ch-badge high">High</span>
-        <h4>Missed Salesforce Releases</h4>
-        <p>"Stay current on seasonal releases" → New platform capabilities unused. Workarounds accumulating where features already exist.</p>
-      </div>
-    </div>
-    <div class="ch-card">
-      <div class="ch-icon">🛡️</div>
-      <div>
-        <span class="ch-badge high">High</span>
-        <h4>No Hypercare Discipline</h4>
-        <p>"Post-launch hypercare" → Deployments go live without a structured support window, escalation path, or rollback plan.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- APPROACH -->
-<section id="approach">
-  <div class="sec-tag">03 — My Approach</div>
-  <h2 class="sec-title">How I Work as a BSA</h2>
-  <p class="sec-sub">Refined across 3.5 years at Infosys. Not theory — habits I practice on every project.</p>
-  <div class="approach-grid">
-    <div class="ap-card">
-      <div class="ap-num">01</div>
-      <h4>Requirements Elicitation</h4>
-      <ul>
-        <li>Pre-built workshop agendas sent in advance</li>
-        <li>Business context before solutions — no tech anchoring</li>
-        <li>RACI-mapped SMEs identified before each session</li>
-        <li>Sign-off gate before technical design begins</li>
-      </ul>
-    </div>
-    <div class="ap-card">
-      <div class="ap-num">02</div>
-      <h4>Process Mapping</h4>
-      <ul>
-        <li>BPMN swimlane diagrams in Lucidchart</li>
-        <li>System touchpoints and data handoffs labeled</li>
-        <li>Exception flows and manual workarounds captured</li>
-        <li>Versioned in Confluence, linked to JIRA epics</li>
-      </ul>
-    </div>
-    <div class="ap-card">
-      <div class="ap-num">03</div>
-      <h4>Salesforce Stewardship</h4>
-      <ul>
-        <li>Monthly org health: flows, permissions, stale records</li>
-        <li>Sandbox preview 4–6 weeks before each seasonal release</li>
-        <li>CPQ + Field Service rules reviewed with business alignment</li>
-        <li>Rootstock ERP integration monitoring for data consistency</li>
-      </ul>
-    </div>
-    <div class="ap-card">
-      <div class="ap-num">04</div>
-      <h4>Agile Delivery</h4>
-      <ul>
-        <li>User stories: role → goal → value with acceptance criteria</li>
-        <li>Sprint planning driven by business priority, not tech preference</li>
-        <li>Backlog groomed weekly — no stale or ambiguous epics</li>
-        <li>Retro actions tracked and closed in the next sprint</li>
-      </ul>
-    </div>
-    <div class="ap-card">
-      <div class="ap-num">05</div>
-      <h4>QA &amp; UAT Leadership</h4>
-      <ul>
-        <li>Test cases written from acceptance criteria, not dev assumptions</li>
-        <li>Business stakeholders co-own UAT — not just IT sign-off</li>
-        <li>Regression suite maintained and expanded per release</li>
-        <li>Go/no-go framework documented before every deploy</li>
-      </ul>
-    </div>
-    <div class="ap-card">
-      <div class="ap-num">06</div>
-      <h4>Stakeholder Comms</h4>
-      <ul>
-        <li>Weekly RAG status: milestones, blockers, decisions needed</li>
-        <li>Power BI project health dashboard for leadership</li>
-        <li>Escalation protocol defined before a crisis, not during one</li>
-        <li>Day 7 / 14 / 30 hypercare reports after every go-live</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- SF ARCHITECTURE -->
+<!-- COMPANY CONTEXT -->
 <section>
-  <div class="sec-tag">04 — Technical Plan</div>
-  <h2 class="sec-title">Fike's Salesforce Ecosystem — My Ownership Map</h2>
-  <p class="sec-sub">The handoff points between platforms are where data quality breaks down. I would own every node in this chain.</p>
-  <div class="sf-box">
-    <div class="sf-box-title">End-to-End Data Flow — Lead to Manufacturing</div>
-    <div class="sf-box-sub">BSA-governed across all platform handoffs</div>
-    <div class="sf-flow">
-      <div class="sf-node o">Sales Lead</div>
-      <div class="sf-arr">→</div>
-      <div class="sf-node">Salesforce CRM</div>
-      <div class="sf-arr">→</div>
-      <div class="sf-node b">CPQ Quoting</div>
-      <div class="sf-arr">→</div>
-      <div class="sf-node">Contract Won</div>
-      <div class="sf-arr">→</div>
-      <div class="sf-node b">Field Service</div>
-      <div class="sf-arr">→</div>
-      <div class="sf-node o">Rootstock ERP</div>
-      <div class="sf-arr">→</div>
-      <div class="sf-node">Manufacturing</div>
+  <div class="sec-label">01 &nbsp;— &nbsp;Company Context</div>
+  <h2 class="sec-title">What I Know About Fike</h2>
+  <p class="sec-desc">A privately held industrial safety manufacturer. The BSA role here carries more weight than at a typical software company — systems directly support life-safety operations.</p>
+  <div class="company-strip">
+    <div class="cs-item">
+      <div class="cs-label">Business</div>
+      <div class="cs-value">Explosion protection, fire suppression, pressure relief</div>
+      <div class="cs-sub">Critical industrial safety</div>
     </div>
-    <div style="display:flex;gap:20px;flex-wrap:wrap;padding-top:16px;border-top:1px solid var(--gray-lt);margin-top:8px;">
-      <span style="font-size:12px;color:var(--gray);display:flex;align-items:center;gap:6px;"><span style="width:12px;height:12px;background:var(--navy);border-radius:3px;display:inline-block;"></span>Core Nodes</span>
-      <span style="font-size:12px;color:var(--gray);display:flex;align-items:center;gap:6px;"><span style="width:12px;height:12px;background:var(--blue);border-radius:3px;display:inline-block;"></span>Salesforce Clouds</span>
-      <span style="font-size:12px;color:var(--gray);display:flex;align-items:center;gap:6px;"><span style="width:12px;height:12px;background:var(--orange);border-radius:3px;display:inline-block;"></span>Critical BSA Handoff Points</span>
+    <div class="cs-item">
+      <div class="cs-label">Scale</div>
+      <div class="cs-value">1,200+ employees worldwide</div>
+      <div class="cs-sub">400+ locally in Blue Springs, MO</div>
+    </div>
+    <div class="cs-item">
+      <div class="cs-label">Tech Stack</div>
+      <div class="cs-value">Salesforce CRM, CPQ, Field Service + Rootstock ERP</div>
+      <div class="cs-sub">Complex, interconnected platform ecosystem</div>
+    </div>
+    <div class="cs-item">
+      <div class="cs-label">Compliance</div>
+      <div class="cs-value">DoD · ISO 45001 · NFPA</div>
+      <div class="cs-sub">Documentation and change governance are non-negotiable</div>
     </div>
   </div>
 </section>
 
-<!-- 90-DAY ROADMAP -->
-<section id="roadmap">
-  <div class="sec-tag">05 — 90-Day Plan</div>
+<hr class="rule">
+
+<!-- PROBLEM / SOLUTION -->
+<section class="alt">
+  <div class="sec-label">02 &nbsp;— &nbsp;Challenge Analysis</div>
+  <h2 class="sec-title">What the JD Signals &nbsp;·&nbsp; How I Respond</h2>
+  <p class="sec-desc">Every requirement in a job description reveals a pain point. Here is how I read Fike's challenges — and what I would do about each one.</p>
+  <div class="ps-grid">
+    <div class="ps-col">
+      <div class="ps-col-head problem">Fike's Challenge</div>
+      <div class="ps-row">
+        <div class="ps-num">01</div>
+        <div><strong>Translation Gap</strong><p>Stakeholders cannot articulate what they need. No structured requirements process.</p></div>
+      </div>
+      <div class="ps-row">
+        <div class="ps-num">02</div>
+        <div><strong>Salesforce Fragmentation</strong><p>Config debt across CRM, CPQ, Field Service, and Rootstock — inconsistent data flows.</p></div>
+      </div>
+      <div class="ps-row">
+        <div class="ps-num">03</div>
+        <div><strong>Undocumented Processes</strong><p>Process knowledge lives in people's heads. Staff turnover creates fragility.</p></div>
+      </div>
+      <div class="ps-row">
+        <div class="ps-num">04</div>
+        <div><strong>Recurring Issues Unresolved</strong><p>Symptoms get patched. Root causes never formally identified or closed.</p></div>
+      </div>
+    </div>
+    <div class="ps-col">
+      <div class="ps-col-head solution">My Response</div>
+      <div class="ps-row">
+        <div class="ps-num">01</div>
+        <div><strong>Structured Elicitation</strong><p>Pre-built workshop agendas, RACI-mapped SMEs, sign-off gates before any design begins.</p></div>
+      </div>
+      <div class="ps-row">
+        <div class="ps-num">02</div>
+        <div><strong>Salesforce Org Audit — Day 1–30</strong><p>Full inventory of flows, triggers, permissions, and integrations. Remediate sprint by sprint.</p></div>
+      </div>
+      <div class="ps-row">
+        <div class="ps-num">03</div>
+        <div><strong>BPMN Process Documentation</strong><p>Current-state and future-state swimlane diagrams in Lucidchart, versioned in Confluence.</p></div>
+      </div>
+      <div class="ps-row">
+        <div class="ps-num">04</div>
+        <div><strong>Formal RCA Cadence</strong><p>5-Why methodology, corrective actions in JIRA, regression test coverage, verified closure.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- SKILLS -->
+<section>
+  <div class="sec-label">03 &nbsp;— &nbsp;Skills Alignment</div>
+  <h2 class="sec-title">JD Requirement &nbsp;→&nbsp; Delivered Result</h2>
+  <p class="sec-desc">Direct mapping from the Fike job description to verified outcomes at Infosys.</p>
+  <table class="skills-table">
+    <tr>
+      <td class="sk-name">Requirements &amp; Workshops</td>
+      <td class="sk-bar-wrap"><div class="sk-bg"><div class="sk-fill" style="width:100%"></div></div></td>
+      <td class="sk-proof">Led workshops with SMEs across all project phases — 95% satisfaction, 10% less miscommunication</td>
+      <td class="sk-pct">100%</td>
+    </tr>
+    <tr>
+      <td class="sk-name">Process Mapping &amp; Gap Analysis</td>
+      <td class="sk-bar-wrap"><div class="sk-bg"><div class="sk-fill" style="width:100%"></div></div></td>
+      <td class="sk-proof">Current/future-state documentation at Infosys — 40% workflow efficiency improvement</td>
+      <td class="sk-pct">100%</td>
+    </tr>
+    <tr>
+      <td class="sk-name">Salesforce CRM Administration</td>
+      <td class="sk-bar-wrap"><div class="sk-bg"><div class="sk-fill" style="width:95%"></div></div></td>
+      <td class="sk-proof">Primary Salesforce liaison — requirements, design, seasonal release coordination</td>
+      <td class="sk-pct">95%</td>
+    </tr>
+    <tr>
+      <td class="sk-name">Agile Scrum &amp; JIRA</td>
+      <td class="sk-bar-wrap"><div class="sk-bg"><div class="sk-fill" style="width:100%"></div></div></td>
+      <td class="sk-proof">SCRUM Certified — led sprint planning, backlog grooming, retros — 15% faster delivery</td>
+      <td class="sk-pct">100%</td>
+    </tr>
+    <tr>
+      <td class="sk-name">UAT &amp; Test Case Development</td>
+      <td class="sk-bar-wrap"><div class="sk-bg"><div class="sk-fill" style="width:100%"></div></div></td>
+      <td class="sk-proof">Led test script development and UAT coordination for all enterprise deployments</td>
+      <td class="sk-pct">100%</td>
+    </tr>
+    <tr>
+      <td class="sk-name">Stakeholder Communication</td>
+      <td class="sk-bar-wrap"><div class="sk-bg"><div class="sk-fill" style="width:100%"></div></div></td>
+      <td class="sk-proof">Power BI leadership dashboards — 25% faster decision-making, transparent RAG reporting</td>
+      <td class="sk-pct">100%</td>
+    </tr>
+    <tr>
+      <td class="sk-name">Root Cause Analysis</td>
+      <td class="sk-bar-wrap"><div class="sk-bg"><div class="sk-fill" style="width:100%"></div></div></td>
+      <td class="sk-proof">Structured RCA on recurring data quality issues — 30% accuracy improvement</td>
+      <td class="sk-pct">100%</td>
+    </tr>
+  </table>
+</section>
+
+<hr class="rule">
+
+<!-- 90-DAY PLAN -->
+<section class="alt">
+  <div class="sec-label">04 &nbsp;— &nbsp;90-Day Plan</div>
   <h2 class="sec-title">First 90 Days at Fike</h2>
-  <p class="sec-sub">Listen before fixing. Every phase ends with a concrete deliverable for leadership.</p>
-  <div class="roadmap">
-    <div class="rm-card">
-      <div class="rm-head p1">
-        <div class="rm-phase">Phase 1</div>
-        <div class="rm-title">Listen &amp; Audit</div>
-        <div class="rm-span">Days 1–30</div>
+  <p class="sec-desc">Listen before fixing. Each phase closes with a concrete deliverable for leadership.</p>
+  <div class="plan-grid">
+    <div class="plan-col">
+      <div class="plan-head p1">
+        <div class="plan-phase">Phase 1</div>
+        <div class="plan-title">Listen &amp; Audit</div>
+        <div class="plan-dates">Days 1 – 30</div>
       </div>
-      <div class="rm-body">
-        <div class="rm-item"><div class="rm-dot"></div><span>Shadow Sales, Field Service, Manufacturing, Finance — document every friction point</span></div>
-        <div class="rm-item"><div class="rm-dot"></div><span>Full Salesforce org audit: flows, triggers, permissions, integrations, stale automations</span></div>
-        <div class="rm-item"><div class="rm-dot"></div><span>Map current-state data flow: Lead → CRM → CPQ → Field Service → Rootstock → Mfg</span></div>
-        <div class="rm-item"><div class="rm-dot"></div><span>Inventory existing process docs — identify gaps, outdated content, tribal knowledge</span></div>
-        <div class="rm-kpi"><div class="rm-kpi-lbl">Deliverable</div>Current-state process map + Salesforce audit report to leadership</div>
-      </div>
-    </div>
-    <div class="rm-card">
-      <div class="rm-head p2">
-        <div class="rm-phase">Phase 2</div>
-        <div class="rm-title">Fix &amp; Standardize</div>
-        <div class="rm-span">Days 31–60</div>
-      </div>
-      <div class="rm-body">
-        <div class="rm-item"><div class="rm-dot"></div><span>Prioritize top 3 Salesforce pain points; begin sprint-by-sprint remediation</span></div>
-        <div class="rm-item"><div class="rm-dot"></div><span>Stand up requirements template library in Confluence — all requirement types</span></div>
-        <div class="rm-item"><div class="rm-dot"></div><span>Lead first structured requirements workshop; present output to leadership</span></div>
-        <div class="rm-item"><div class="rm-dot"></div><span>Define hypercare playbook — named owner, SLA tiers, and rollback plan per deploy</span></div>
-        <div class="rm-kpi"><div class="rm-kpi-lbl">Deliverable</div>Requirements framework live; first sprint with structured user stories deployed</div>
+      <div class="plan-body">
+        <div class="plan-item"><strong>Shadow all core teams</strong> — Sales, Field Service, Manufacturing, Finance</div>
+        <div class="plan-item"><strong>Salesforce org audit</strong> — flows, triggers, permissions, integrations</div>
+        <div class="plan-item"><strong>Map current-state flow</strong> — Lead through CRM, CPQ, Field Service, Rootstock</div>
+        <div class="plan-item"><strong>Inventory process docs</strong> — identify gaps and conflicting tribal knowledge</div>
+        <div class="plan-output"><span>Deliverable</span>Current-state map + Salesforce audit report to leadership</div>
       </div>
     </div>
-    <div class="rm-card">
-      <div class="rm-head p3">
-        <div class="rm-phase">Phase 3</div>
-        <div class="rm-title">Scale &amp; Own</div>
-        <div class="rm-span">Days 61–90</div>
+    <div class="plan-col">
+      <div class="plan-head p2">
+        <div class="plan-phase">Phase 2</div>
+        <div class="plan-title">Fix &amp; Standardize</div>
+        <div class="plan-dates">Days 31 – 60</div>
       </div>
-      <div class="rm-body">
-        <div class="rm-item"><div class="rm-dot"></div><span>First Salesforce seasonal release review — sandbox, impact assessment, stakeholder brief</span></div>
-        <div class="rm-item"><div class="rm-dot"></div><span>Gap analysis on one high-priority process — root cause + ranked recommendations</span></div>
-        <div class="rm-item"><div class="rm-dot"></div><span>Establish recurring RCA cadence — close the loop permanently, not just patch symptoms</span></div>
-        <div class="rm-item"><div class="rm-dot"></div><span>90-day retrospective to leadership: found → fixed → next 90 days</span></div>
-        <div class="rm-kpi"><div class="rm-kpi-lbl">Deliverable</div>First gap analysis + seasonal release report to senior leadership</div>
+      <div class="plan-body">
+        <div class="plan-item"><strong>Remediate top 3 Salesforce issues</strong> — sprint-by-sprint with stakeholder alignment</div>
+        <div class="plan-item"><strong>Requirements library</strong> — functional, integration, and data templates in Confluence</div>
+        <div class="plan-item"><strong>First requirements workshop</strong> — structured facilitation, output to leadership</div>
+        <div class="plan-item"><strong>Hypercare playbook</strong> — named owner, SLA tiers, rollback plan per deployment</div>
+        <div class="plan-output"><span>Deliverable</span>Requirements framework live; first structured sprint deployed</div>
+      </div>
+    </div>
+    <div class="plan-col">
+      <div class="plan-head p3">
+        <div class="plan-phase">Phase 3</div>
+        <div class="plan-title">Scale &amp; Own</div>
+        <div class="plan-dates">Days 61 – 90</div>
+      </div>
+      <div class="plan-body">
+        <div class="plan-item"><strong>Seasonal release readiness</strong> — sandbox, impact assessment, stakeholder briefing</div>
+        <div class="plan-item"><strong>Gap analysis</strong> — one high-priority process: root cause + ranked recommendations</div>
+        <div class="plan-item"><strong>RCA cadence established</strong> — close the loop permanently, not just patch symptoms</div>
+        <div class="plan-item"><strong>90-day retrospective</strong> — what I found, fixed, and plan for the next quarter</div>
+        <div class="plan-output"><span>Deliverable</span>Gap analysis + seasonal release report to senior leadership</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SKILLS MATCH -->
-<section id="match">
-  <div class="sec-tag">06 — Skills Alignment</div>
-  <h2 class="sec-title">JD Requirements → Proven Results</h2>
-  <p class="sec-sub">Every requirement maps to verified, quantified outcomes from Infosys. Not aspirational — delivered.</p>
-  <div class="skills-grid">
-    <div class="sk-row">
-      <div class="sk-head"><span class="sk-name">Requirements Gathering &amp; Workshops</span><span class="sk-pct">100%</span></div>
-      <div class="sk-bar-bg"><div class="sk-bar-fill" style="width:100%"></div></div>
-      <div class="sk-note">Led cross-functional workshops with business leaders and SMEs · 95% stakeholder satisfaction · 10% reduction in miscommunication</div>
-    </div>
-    <div class="sk-row">
-      <div class="sk-head"><span class="sk-name">Current/Future State Process Mapping</span><span class="sk-pct">100%</span></div>
-      <div class="sk-bar-bg"><div class="sk-bar-fill" style="width:100%"></div></div>
-      <div class="sk-note">Comprehensive process flow documentation · 40% workflow efficiency improvement across operational teams at Infosys</div>
-    </div>
-    <div class="sk-row">
-      <div class="sk-head"><span class="sk-name">Gap Analysis &amp; Root Cause Analysis</span><span class="sk-pct">100%</span></div>
-      <div class="sk-bar-bg"><div class="sk-bar-fill" style="width:100%"></div></div>
-      <div class="sk-note">Structured gap analyses identifying systemic inefficiencies · 40% incident response time reduction · 30% data accuracy gain</div>
-    </div>
-    <div class="sk-row">
-      <div class="sk-head"><span class="sk-name">Salesforce CRM Administration</span><span class="sk-pct">95%</span></div>
-      <div class="sk-bar-bg"><div class="sk-bar-fill" style="width:95%"></div></div>
-      <div class="sk-note">Primary Salesforce liaison at Infosys — requirements, solution design, seasonal release coordination, org alignment</div>
-    </div>
-    <div class="sk-row">
-      <div class="sk-head"><span class="sk-name">Agile Scrum · JIRA · Sprint Planning</span><span class="sk-pct">100%</span></div>
-      <div class="sk-bar-bg"><div class="sk-bar-fill" style="width:100%"></div></div>
-      <div class="sk-note">Led sprint planning, backlog grooming, retrospectives · SCRUM Certified · 15% improvement in delivery speed at Infosys</div>
-    </div>
-    <div class="sk-row">
-      <div class="sk-head"><span class="sk-name">UAT Planning &amp; Functional Testing</span><span class="sk-pct">100%</span></div>
-      <div class="sk-bar-bg"><div class="sk-bar-fill" style="width:100%"></div></div>
-      <div class="sk-note">Led UAT test script development and functional testing for enterprise enhancements — all solutions validated before production</div>
-    </div>
-    <div class="sk-row">
-      <div class="sk-head"><span class="sk-name">Stakeholder Communication &amp; Dashboards</span><span class="sk-pct">100%</span></div>
-      <div class="sk-bar-bg"><div class="sk-bar-fill" style="width:100%"></div></div>
-      <div class="sk-note">Power BI dashboards for senior leadership visibility · 25% faster decision-making · transparent risk and milestone reporting</div>
-    </div>
-    <div class="sk-row">
-      <div class="sk-head"><span class="sk-name">Technical Translation · SQL · Python</span><span class="sk-pct">100%</span></div>
-      <div class="sk-bar-bg"><div class="sk-bar-fill" style="width:100%"></div></div>
-      <div class="sk-note">ETL pipelines in Snowflake + SQL + Python · Power BI dashboards · predictive models across enterprise platforms</div>
-    </div>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    <h3>Raghav Patidar</h3>
+    <p>Business Systems Analyst &nbsp;·&nbsp; Fike Corporation, Req #3788</p>
   </div>
-  <div class="kpi-strip">
-    <div class="kpi-card">
-      <div class="kpi-num">95%</div>
-      <div class="kpi-metric">Stakeholder Satisfaction</div>
-      <div class="kpi-ctx">All workshops at Infosys</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-num">40%</div>
-      <div class="kpi-metric">Workflow Efficiency</div>
-      <div class="kpi-ctx">Process mapping &amp; gap analysis</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-num">30%</div>
-      <div class="kpi-metric">Data Accuracy Gain</div>
-      <div class="kpi-ctx">RCA + corrective workflows</div>
-    </div>
-    <div class="kpi-card">
-      <div class="kpi-num">25%</div>
-      <div class="kpi-metric">Faster Decisions</div>
-      <div class="kpi-ctx">Power BI leadership dashboards</div>
-    </div>
+  <div class="footer-right">
+    <a href="mailto:raghavpatidar997@gmail.com" class="footer-right btn-solid">raghavpatidar997@gmail.com</a>
+    <a href="https://www.linkedin.com/in/raghav-patidar-604527165/" target="_blank" class="footer-right btn-ghost">LinkedIn</a>
   </div>
-</section>
-
-<!-- CLOSING -->
-<div class="closing">
-  <h2>Ready to Make Fike's Systems<br><span>as Reliable as Its Products</span></h2>
-  <p>Fike protects the world's most critical industrial operations. I bring the Salesforce expertise, Agile discipline, and requirements rigor to ensure your technology matches that same standard of precision.</p>
-  <div class="btn-row">
-    <a href="mailto:raghavpatidar997@gmail.com" class="btn-p">raghavpatidar997@gmail.com</a>
-    <a href="https://www.linkedin.com/in/raghav-patidar-604527165/" target="_blank" class="btn-o">LinkedIn Profile</a>
+  <div class="footer-contacts">
+    <div class="fc-item"><div class="fc-label">Phone</div><div class="fc-val">913-218-6727</div></div>
+    <div class="fc-item"><div class="fc-label">Email</div><div class="fc-val">raghavpatidar997@gmail.com</div></div>
+    <div class="fc-item"><div class="fc-label">LinkedIn</div><div class="fc-val">linkedin.com/in/raghav-patidar-604527165</div></div>
   </div>
-  <div class="contact-row">
-    <div class="ct"><div class="ct-lbl">Phone</div><div class="ct-val">913-218-6727</div></div>
-    <div class="ct"><div class="ct-lbl">Email</div><div class="ct-val">raghavpatidar997@gmail.com</div></div>
-    <div class="ct"><div class="ct-lbl">LinkedIn</div><div class="ct-val">linkedin.com/in/raghav-patidar-604527165</div></div>
-  </div>
-</div>
+</footer>
 
 </body>
 </html>
